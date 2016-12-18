@@ -4,6 +4,7 @@ import loadInitializers from 'ember-load-initializers';
 import config from './config/environment';
 
 import 'npm:../../lib/htmlbars-plugin';
+import 'ember-inflector';
 
 let App;
 

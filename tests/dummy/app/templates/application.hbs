@@ -1,3 +1,54 @@
-<h1>ember-css-modules</h1>
-
 {{outlet}}
+
+<div style="display: flex; align-items: center; padding: 2em">
+  <div style="display: flex; flex-flow: column; margin-right: 20px">
+    <label><input type="radio" name="type" onclick={{action (mut project.type) 'app'}} checked>Application</label>
+    <label><input type="radio" name="type" onclick={{action (mut project.type) 'addon'}}>Addon</label>
+  </div>
+
+  <div style="display: flex; flex-flow: column">
+    <label><input type="radio" name="structure" onclick={{action (mut project.structure) 'classic'}} checked>Classic</label>
+    <label><input type="radio" name="structure" onclick={{action (mut project.structure) 'pods'}}>Pods</label>
+  </div>
+</div>
+
+{{#usage-example title='Basic Usage' entityName='basic-usage-example' as |example|}}
+  {{#example.css}}
+    .my-class {
+      color: green;
+    }
+  {{/example.css}}
+
+  {{#example.hbs}}
+    &lt;div local-class="my-class"&gt;hello!&lt;/div&gt;
+  {{/example.hbs}}
+
+  {{#example.js-class}}
+    foo: 'bar',
+    baz: 'qux'
+  {{/example.js-class}}
+{{/usage-example}}
+
+{{#usage-example title='Using @value' entityName='composition-example' as |example|}}
+  {{#example.css path='styles/colors.css'}}
+    @value --grass-green: #4dbd33;
+  {{/example.css}}
+
+  {{#example.css}}
+    @value --grass-green from '{{example.modulePrefix}}/styles/colors.css';
+
+    .my-class {
+      color: --grass-green;
+    }
+  {{/example.css}}
+
+  {{#example.hbs}}
+    &lt;div local-class="my-class"&gt;hello!&lt;/div&gt;
+  {{/example.hbs}}
+{{/usage-example}}
+
+{{#usage-example title='Plugins' as |example|}}
+  {{#example.js-config}}
+    plugins: [require('postcss-nested')]
+  {{/example.js-config}}
+{{/usage-example}}

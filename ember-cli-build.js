@@ -16,6 +16,18 @@ module.exports = function(defaults) {
           'important-background': 'rgb(255, 255, 0)'
         }
       }
+    },
+
+    nodeAssets: {
+      prismjs: {
+        import: [
+          'prism.js',
+          'themes/prism-solarizedlight.css',
+          'components/prism-javascript.js',
+          'components/prism-handlebars.js',
+          'components/prism-css.js'
+        ]
+      }
     }
   });
 

@@ -1,0 +1,24 @@
+{{#usage-example/snippet effectivePath=path triggerValue=content}}
+{{#if (eq project.type 'addon')}}
+module.exports = {
+  options: {
+    cssModules: {
+{{content}}
+    }
+  }
+};
+{{else}}
+module.exports = function(defaults) {
+  var app = new EmberApp(defaults, {
+    cssModules: {
+{{content}}
+    }
+  });
+  return app.toTree();
+};
+{{/if}}
+{{/usage-example/snippet}}
+
+{{#capture-content update=(action 'updateContent')}}
+  {{yield}}
+{{/capture-content}}

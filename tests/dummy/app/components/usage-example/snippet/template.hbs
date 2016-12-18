@@ -1,0 +1,11 @@
+{{#capture-content
+  triggerValue
+  project.structure
+  project.type
+  entityType
+  update=(action (mut source))
+}}
+  {{yield}}
+{{/capture-content}}
+
+{{code-block filename=effectivePath source=source}}

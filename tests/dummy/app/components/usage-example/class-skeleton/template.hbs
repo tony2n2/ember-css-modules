@@ -1,0 +1,20 @@
+{{#usage-example/snippet path=path entityName=entityName entityType=entityType triggerValue=content}}
+{{#each imports as |import|~}}
+  {{import}}
+{{/each}}
+const { {{className}} } = Ember;
+
+export default {{className}}.extend({
+{{#if (and (eq project.type 'addon') (eq entityType 'component'))}}  layout,
+{{/if}}
+{{~#if (eq project.type 'addon')}}  styles{{if hasBlock ','}}
+{{/if}}
+{{#if hasBlock}}
+{{content}}
+{{/if}}
+});
+{{/usage-example/snippet}}
+
+{{#capture-content update=(action 'updateContent')}}
+  {{yield}}
+{{/capture-content}}

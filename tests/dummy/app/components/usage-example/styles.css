@@ -1,0 +1,21 @@
+.component {
+  margin: 2em;
+}
+
+.header {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.js-type {
+  margin-left: 2em;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+}

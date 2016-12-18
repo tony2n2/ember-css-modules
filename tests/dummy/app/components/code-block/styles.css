@@ -1,0 +1,22 @@
+.code {
+  position: relative;
+  font-size: 13px;
+  border: 1px solid #eee;
+
+  /* override Prism's default 1em to add space for the path annotation */
+  padding-top: 3em !important;
+}
+
+.path {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  color: #aaa;
+  padding: 0.25em 1em;
+  border-top-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  border: solid #eee;
+  border-width: 0 1px 1px 0;
+  background-color: rgba(255, 255, 255, 0.6);
+}

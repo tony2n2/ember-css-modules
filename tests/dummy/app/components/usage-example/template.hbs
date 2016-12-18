@@ -1,0 +1,37 @@
+<div local-class="header">
+  <h2 local-class="title">{{title}}</h2>
+
+  <form local-class="js-type">
+    <label>
+      <input type="radio" name="jsEntityType" onclick={{action (mut jsEntityType) 'component'}} checked>
+      Component
+    </label>
+    <label>
+      <input type="radio" name="jsEntityType" onclick={{action (mut jsEntityType) 'controller'}}>
+      Controller
+    </label>
+  </form>
+</div>
+
+{{yield (hash
+  modulePrefix=project.name
+  css=(component 'usage-example/snippet'
+    entityType='styles'
+    entityName=entityName
+    forComponent=(eq jsEntityType 'component')
+  )
+  hbs=(component 'usage-example/snippet'
+    entityType='template'
+    entityName=entityName
+    forComponent=(eq jsEntityType 'component')
+  )
+  js=(component 'usage-example/snippet'
+    entityType=jsEntityType
+    entityName=entityName
+  )
+  js-config=(component 'usage-example/config-skeleton')
+  js-class=(component 'usage-example/class-skeleton'
+    entityType=jsEntityType
+    entityName=entityName
+  )
+)}}
