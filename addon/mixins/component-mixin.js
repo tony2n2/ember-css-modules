@@ -35,7 +35,7 @@ export default Mixin.create({
     let key = this._debugContainerKey;
     if (!key) { return; }
 
-    return getOwner(this).resolveRegistration(`styles:components/${key.substring(key.indexOf(':') + 1)}`);
+    return getOwner(this).resolveRegistration(`styles:${key.substring(key.indexOf(':') + 1)}`);
   })
 });
 
