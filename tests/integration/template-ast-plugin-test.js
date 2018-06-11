@@ -7,7 +7,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { render } from '@ember/test-helpers';
 
-import ClassTransformPlugin from 'npm:../../lib/htmlbars-plugin';
+import ClassTransformPlugin from 'ecm-template-transform';
 const { compile } = Ember.__loader.require('ember-template-compiler');
 
 module('Integration | Template AST Plugin', function(hooks) {
