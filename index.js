@@ -69,6 +69,13 @@ module.exports = {
     });
   },
 
+  setupTypeGeneratorRegistry(type, registry) {
+    if (type !== 'parent') { return; }
+
+    const TypeGenerator = require('./lib/type-generator');
+    registry.add(new TypeGenerator(this));
+  },
+
   verifyStylesDirectory() {
     if (!fs.existsSync(path.join(this.parent.root, this.parent.treePaths['addon-styles']))) {
       this.ui.writeWarnLine(
@@ -140,6 +147,10 @@ module.exports = {
     let modules = this.cssModulesOptions[`${type}Modules`] || [];
     let extension = this.getFileExtension();
     return modules.map(file => file.endsWith(`.${extension}`) ? file : `${file}.${extension}`);
+  },
+
+  resolvePath(path, fromFile) {
+    return this.modulesPreprocessor.resolvePath(path, fromFile);
   },
 
   enableSourceMaps() {
