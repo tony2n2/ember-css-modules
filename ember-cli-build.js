@@ -33,5 +33,10 @@ module.exports = function(defaults) {
     }
   });
 
+  // These are installed for the sake of the dummy addons,
+  // but not actually wanted in the main dummy app.
+  app.registry.remove('css', 'ember-cli-sass');
+  app.registry.remove('css', 'ember-cli-less');
+
   return app.toTree();
 };
