@@ -16,7 +16,7 @@ module.exports = {
 
   shouldIncludeChildAddon(addon) {
     // Don't infinitely recurse – it's the dummy test app that depends on dummy-addon, not this addon itself
-    return addon.name.indexOf('dummy') === -1;
+    return addon.name.indexOf('dummy') === -1 && addon.name !== 'template-stuff';
   },
 
   init() {

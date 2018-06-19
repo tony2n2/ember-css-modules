@@ -3,7 +3,6 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const Rollup = require('broccoli-rollup');
 
 module.exports = {
   name: 'template-stuff',
@@ -24,6 +23,7 @@ module.exports = {
   },
 
   treeForVendor() {
+    const Rollup = require('broccoli-rollup');
     return new Rollup(`${__dirname}/../../../../lib`, {
       rollup: {
         input: 'htmlbars-plugin/index.js',
