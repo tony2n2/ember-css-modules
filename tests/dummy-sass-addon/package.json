@@ -12,6 +12,7 @@
   "dependencies": {
     "ember-cli-babel": "*",
     "ember-cli-htmlbars": "*",
-    "ember-cli-sass": "*"
+    "ember-cli-sass": "*",
+    "postcss-scss": "*"
   }
 }

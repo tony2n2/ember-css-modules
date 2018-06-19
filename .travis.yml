@@ -32,10 +32,6 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
-before_script:
-  - yarn global add bower
-  - yarn run install-all
-
 script:
   - yarn lint:js
   - if [[ $NODE_TESTS == true ]]; then
