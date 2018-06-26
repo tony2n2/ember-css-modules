@@ -1,6 +1,7 @@
 import { helper } from '@ember/component/helper';
 import Component from '@ember/component';
 import Ember from 'ember';
+import { VERSION } from '@ember/version';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
@@ -282,7 +283,7 @@ module('Integration | Template AST Plugin', function(hooks) {
         assert.ok(this.$(selector).length, 'Expected output contains verification selector');
         const expected = this.$().html().replace(/id="\w+"/g, '');
 
-        const plugin = ClassTransformPlugin.forEmberVersion(Ember.VERSION);
+        const plugin = ClassTransformPlugin.forEmberVersion(VERSION);
         await render(compile(inputString, { plugins: { ast: [plugin] } }));
         assert.ok(this.$(selector).length, 'Actual output contains verification selector');
         const actual = this.$().html().replace(/id="\w+"/g, '');
