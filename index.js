@@ -91,6 +91,10 @@ module.exports = {
     return this.project;
   },
 
+  getPassthroughFileExtensions() {
+    return this.cssModulesOptions.passthroughFileExtensions || ['css', 'scss', 'sass', 'less', 'styl'];
+  },
+
   getScopedNameGenerator() {
     return this.cssModulesOptions.generateScopedName || require('./lib/generate-scoped-name');
   },
