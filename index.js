@@ -57,6 +57,9 @@ module.exports = {
   setupPreprocessorRegistry(type, registry) {
     // Skip if we're setting up this addon's own registry
     if (type !== 'parent') { return; }
+    
+    // Prevent an empty Less broccoli node being created, ember-cli-less doesn't know how to process it.
+    if (registry.app.name === 'dummy') return;
 
     registry.add('js', this.modulesPreprocessor);
     registry.add('css', this.outputStylesPreprocessor);
